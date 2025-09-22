@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dosya Erişim Paneli</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      height: 100%;
+      background: url('ocali.png') no-repeat center center fixed; /* BURAYA FOTOĞRAFIN ADINI YAZ */
+      background-size: cover;
+    }
+
+    .overlay {
+      background: rgba(0, 0, 0, 0.6); /* Karanlık katman */
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      padding: 40px;
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+      animation: fadeIn 0.6s ease;
+    }
+
+    h2 {
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    p {
+      color: #555;
+      font-size: 15px;
+      margin-bottom: 20px;
+    }
+
+    input[type="password"] {
+      padding: 12px;
+      width: 100%;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      margin-bottom: 20px;
+      font-size: 16px;
+    }
+
+    button {
+      padding: 12px 20px;
+      background-color: #2a5298;
+      border: none;
+      color: white;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #1e3c72;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .downloads ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .downloads li {
+      margin: 12px 0;
+    }
+
+    .downloads a {
+      color: #2a5298;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 16px;
+      transition: color 0.3s ease;
+    }
+
+    .downloads a:hover {
+      color: #1e3c72;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 500px) {
+      .card {
+        padding: 30px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay"></div>
+
+  <div class="container">
+    <!-- Giriş Kartı -->
+    <div class="card" id="loginCard">
+      <h2>🔐</h2>
+      <p>Damlamak için şifreyi gir.</p>
+      <input type="password" id="passwordInput" placeholder="Şifre" />
+      <button onclick="validatePassword()">İNTİKAL ET</button>
+    </div>
+
+    <!-- Dosyalar Kartı -->
+    <div class="card hidden" id="downloadsCard">
+      <h2>📁</h2>
+      
+      <div class="downloads">
+        <ul>
+          <li><a href="cslol-manager.rar" download>BABAGG </a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function validatePassword() {
+      const correctPassword = "beytobabam"; // ŞİFRENİ BURADA DEĞİŞTİR
+      const input = document.getElementById("passwordInput").value;
+
+      if (input === correctPassword) {
+        document.getElementById("loginCard").classList.add("hidden");
+        document.getElementById("downloadsCard").classList.remove("hidden");
+      } else {
+        alert("❌ SALAK OÇ");
+      }
+    }
+  </script>
+</body>
+</html>
